@@ -5,13 +5,11 @@ import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 import { importProvidersFrom } from '@angular/core';
 import { provideToastr, ToastrModule } from 'ngx-toastr';
-import { ResponseInterceptor } from './app/interceptors/response-interceptor.interceptor';
-import { authInterceptor } from './app/interceptors/auth.interceptor';
 import {provideAnimations} from '@angular/platform-browser/animations'
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideHttpClient(withInterceptors([authInterceptor,ResponseInterceptor])),
+    provideHttpClient(withInterceptors([])),
     provideRouter(routes),
     provideToastr({
       positionClass: 'toast-top-right', 
